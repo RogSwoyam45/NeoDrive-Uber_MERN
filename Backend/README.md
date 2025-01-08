@@ -89,40 +89,36 @@ JSON
   ]
 }
 ```
-#### Validation Rules
-The following validation rules are applied to the request body:
+# **User Login API Documentation**
 
-| Field                 | Validation                                         | Required |
-|------------------------|----------------------------------------------------|----------|
-| `fullname.firstname`  | Must be at least 3 characters long.                   | Yes      |
-| `fullname.lastname`   | No specific validation rule.                         | No       |
-| `email`                 | Must be a valid email address (e.g., name@domain.com). | Yes      |
-| `password`             | Must be at least 3 characters long.                   | Yes      |
+## **Endpoint: `/user/login`**
 
+This endpoint allows registered users to log in to their accounts by providing valid credentials (email and password). Upon successful login, it returns a JSON Web Token (JWT) for authentication.
 
-#### Error Codes
+---
 
-| Status Code | Description                                                              |
-|--------------|------------------------------------------------------------------------------|
-| 400          | Validation failed due to missing or invalid parameters.                   |
-| 500          | Internal server error occurred during processing.                         |
+## **Request**
 
+### **Method**: `POST`
 
+### **URL**: `/user/login`
 
-#### Implementation Details
+### **Headers**
+- `Content-Type`: `application/json`
 
+### **Body Parameters**
+The request body should contain the following fields:
 
-##### Validation
+| **Field**    | **Type**   | **Required** | **Description**                                |
+|--------------|------------|--------------|------------------------------------------------|
+| `email`      | `string`   | Yes          | The user's registered email address.          |
+| `password`   | `string`   | Yes          | The user's password.                          |
 
-The express-validator library is used for validating the input fields in the request body. 
-Validation rules are defined in the `user.routes.js` file.
-
-##### Password Handling
-
-User passwords are hashed using the bcrypt library before being stored in the database for enhanced security.
-
-##### Token Generation
-
-Upon successful registration, a JSON Web Token (JWT) is generated using the `jsonwebtoken` library. 
-The token contains the user's unique identifier (`_id`) and is returned in the response for authentication purposes.
+#### Example Request Body
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+```
 
