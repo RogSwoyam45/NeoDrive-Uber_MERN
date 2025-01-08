@@ -122,3 +122,56 @@ The request body should contain the following fields:
 }
 ```
 
+# **User Profile API Documentation**
+
+## **Endpoint: `/user/profile`**
+
+This endpoint allows authenticated users to retrieve their profile information.
+
+---
+
+## **Request**
+
+### **Method**: `GET`
+
+### **URL**: `/user/profile`
+
+### **Headers**
+- `Authorization`: `Bearer <token>`
+
+#### Example Response Body
+```json
+{
+  "_id": "64b27b8dcd1234abcd5678ef",
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com"
+}
+```
+
+# **User Logout API Documentation**
+
+## **Endpoint: `/user/logout`**
+
+This endpoint allows authenticated users to log out by invalidating their current session token.
+
+---
+
+## **Request**
+
+### **Method**: `GET`
+
+### **URL**: `/user/logout`
+
+### **Headers**
+- `Authorization`: `Bearer <token>`
+
+#### Example Response Body
+```json
+{
+  "msg": "Logged out successfully"
+}
+```
+
