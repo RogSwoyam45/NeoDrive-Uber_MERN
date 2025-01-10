@@ -1,2 +1,1 @@
-was checking login route
-problem in compare password(48:14)
+Checking of the register route of captains postman errors coming remove or clear the mongodb then try.

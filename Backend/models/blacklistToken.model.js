@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
+
 const blacklistTokenSchema = new mongoose.Schema({
     token: { 
         type: String,
@@ -8,7 +10,7 @@ const blacklistTokenSchema = new mongoose.Schema({
     createdAt: { 
         type: Date, 
         default: Date.now, 
-        expires: '24h' }
+        expires: process.env.JWT_EXPIRES_IN }
 });
 
 module.exports = mongoose.model('BlacklistToken', blacklistTokenSchema);

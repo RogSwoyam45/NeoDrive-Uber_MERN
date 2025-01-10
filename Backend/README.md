@@ -13,8 +13,6 @@ It validates user input and returns a JSON Web Token (JWT) upon successful regis
 
 ### URL: `/user/register`
 
-
-
 ### Body Parameters
 
 The request body should contain the following fields:
@@ -175,3 +173,52 @@ This endpoint allows authenticated users to log out by invalidating their curren
 }
 ```
 
+# **Captain Registration API Documentation**
+
+## **Endpoint: `/captain/register`**
+
+This endpoint allows the creation of a new captain account. It validates captain input and returns a JSON Web Token (JWT) upon successful registration.
+---
+
+## **Request**
+
+### **Method**: ` POST`
+
+### **URL**: `/captain/register`
+
+### **Headers**
+- `Authorization`: `Bearer <token>`
+
+#### Example Response Body
+
+| Field                | Type     | Required | Description                                 |
+| -------------------- | -------- | -------- | ------------------------------------------- |
+| `fullname.firstname` | `string` | Yes      | First name of the captain (min. 3 characters). |
+| `fullname.lastname`  | `string` | No       | Last name of the captain (min. 3 characters).  |
+| `email`              | `string` | Yes      | Valid email address (must be unique).       |
+| `password`           | `string` | Yes      | Captain's password (min. 6 characters).     |
+| `vehicle.color`      | `string` | Yes      | Color of the vehicle (min. 3 characters).   |
+| `vehicle.plate`      | `string` | Yes      | Plate number of the vehicle (min. 3 characters). |
+| `vehicle.capacity`   | `number` | Yes      | Capacity of the vehicle (min. 1).           |
+| `vehicle.VehicleType`| `string` | Yes      | Type of the vehicle (car, motorcycle, auto).|
+
+
+```json
+{
+  "token": "your_jwt_token_here",
+  "captain": {
+    "_id": "64b27b8dcd1234abcd5678ef",
+    "fullname": {
+      "firstname": "Jane",
+      "lastname": "Doe"
+    },
+    "email": "jane.doe@example.com",
+    "vehicle": {
+      "color": "Red",
+      "plate": "XYZ123",
+      "capacity": 4,
+      "VehicleType": "car"
+    }
+  }
+}
+```
