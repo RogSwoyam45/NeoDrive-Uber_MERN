@@ -1,1 +1,3 @@
-Checking of the register route of captains postman errors coming remove or clear the mongodb then try.
+docs for captain routes missing.
+
+
