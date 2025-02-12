@@ -71,13 +71,20 @@ module.exports.getProfile = async (req,res) => {
     res.status(200).json(req.user);
 }
 
-module.exports.logoutUser = async (req,res) => {
-    
-    
-    res.clearCookie('token');
-    const token = req.cookies.token || req.header.authorization?.split(' ')[1];
+module.exports.logoutUser = async (req, res) => {
+    const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
 
-    await blacklistTokenSchema.create({token});
+    if (!token) {
+        return res.status(400).json({ msg: "Token is required" });
+    }
 
-    res.status(200).json({msg : "Logged out successfully"});
-}
+    try {
+        await blacklistTokenSchema.create({ token });
+
+        res.clearCookie('token');
+        res.status(200).json({ msg: "Logged out successfully" });
+    } catch (error) {
+        console.error('Error during logout:', error);
+        res.status(500).json({ msg: "Internal server error" });
+    }
+};
