@@ -12,6 +12,7 @@ import UserLogout from './Pages/UserLogout';
 import CaptainHome from './Pages/CaptainHome';
 import CaptainProtectedWrapper from './Pages/CaptainProtectedWrapper';
 import CaptainLogout from './Pages/CaptainLogout';
+import Riding from './Pages/Riding';
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
           <CaptainLogout />
         </CaptainProtectedWrapper>
         } />
+
+        <Route path='/riding' element={<Riding/>} />
 
       </Routes>
     </div>
