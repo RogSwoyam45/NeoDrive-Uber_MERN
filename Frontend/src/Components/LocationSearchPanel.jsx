@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-const LocationSearchPanel = ({ suggestions = [], setVehiclePanel, setPanelOpen, setPickup, setDestination, activeField }) => {
+const LocationSearchPanel = ({ suggestions, setVehiclePanel, setPanelOpen, setPickup, setDestination, activeField }) => {
 
     const handleSuggestionClick = (suggestion) => {
         if (activeField === 'pickup') {
-            setPickup(suggestion);
+            setPickup(suggestion)
         } else if (activeField === 'destination') {
-            setDestination(suggestion);
+            setDestination(suggestion)
         }
-        setVehiclePanel(true);
-        setPanelOpen(false);
-    };
+        // setVehiclePanel(true)
+        // setPanelOpen(false)
+    }
 
     return (
         <div>
@@ -24,7 +24,7 @@ const LocationSearchPanel = ({ suggestions = [], setVehiclePanel, setPanelOpen, 
                 ))
             }
         </div>
-    );
-};
+    )
+}
 
-export default LocationSearchPanel;
+export default LocationSearchPanel
