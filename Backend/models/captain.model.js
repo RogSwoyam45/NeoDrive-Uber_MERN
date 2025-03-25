@@ -89,3 +89,15 @@ const captainModel = mongoose.model('captain', captainSchema)
 
 
 module.exports = captainModel;
+
+
+
+
+
+
+
+
+
+
+
+// Completed by RogSwoyam45
